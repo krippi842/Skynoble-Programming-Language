@@ -1,4 +1,4 @@
-Here's a **Massive List of Keywords** for Skynoble, covering all essential aspects of the language, compiler directives, type system, memory management, concurrency, and metaprogramming.  
+**Massive List of Keywords** for Skynoble, covering all essential aspects of the language, compiler directives, type system, memory management, concurrency, and metaprogramming.  
 
 ---
 
@@ -82,4 +82,4 @@ Here's a **Massive List of Keywords** for Skynoble, covering all essential aspec
 
 ---
 
-This covers nearly **every major feature** of Skynoble! 🚀 If you need to **add, remove, or modify** anything, let me know!
+This covers nearly **every major feature** of Skynoble! 🚀 
