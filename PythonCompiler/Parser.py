@@ -46,3 +46,20 @@ def parse(tokens):
             statements.append(stmt)
         i += 1
     return statements
+
+# Parser update: Handle mutable variables
+def parse_let_statement():
+    nonlocal i
+    if tokens[i][0] == "LET":
+        i += 1
+        is_mutable = False
+        if tokens[i][0] == "MUT":
+            is_mutable = True
+            i += 1
+        identifier = tokens[i][1]
+        i += 1
+        if tokens[i][0] == "ASSIGN":
+            i += 1
+            value = parse_expression()
+            return LetStatement(identifier, value, is_mutable)
+    return None
