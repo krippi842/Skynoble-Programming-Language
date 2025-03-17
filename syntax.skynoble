@@ -1,3 +1,38 @@
+// Skynoble Code Example: Parallel Sum with SIMD
+
+// Import necessary libraries for SIMD and OpenMP
+import simd;
+import openmp;
+
+// Main function
+func main() {
+    // Array initialization (simple data for demonstration)
+    array<int> data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    // Variable to hold the sum of array elements
+    int sum = 0;
+
+    // Parallel region with OpenMP
+    #parallel for (int i = 0; i < data.size(); i++) {
+        sum += data[i];
+    }
+    
+    // Output the result of the parallel sum
+    print("Sum is: ", sum);
+}
+
+// SIMD Example (vectorized operations)
+func simd_example() {
+    // SIMD operations on a vector
+    vector<int> a = [1, 2, 3, 4, 5];
+    vector<int> b = [6, 7, 8, 9, 10];
+    
+    vector<int> result = a + b;  // Perform element-wise addition using SIMD
+    
+    // Output the result
+    print("SIMD Result: ", result);
+}
+
 let <variable_name> = <value>         // Immutable variable
 let @mut <variable_name> = <value>    // Mutable variable
 
@@ -330,3 +365,4 @@ fun multiply(a, b) {
 }
 
 let product = multiply(2, 3)
+
