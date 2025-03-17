@@ -21,11 +21,12 @@ echo "Detected Platform: $PLATFORM"
 install_dependencies() {
     echo "Installing dependencies..."
     if [[ "$PLATFORM" == "Linux" ]]; then
-        sudo apt update && sudo apt install -y build-essential clang cmake git python3 python3-pip
+        sudo apt update && sudo apt install -y build-essential cmake git python3 python3-pip nasm
     elif [[ "$PLATFORM" == "Mac" ]]; then
-        brew install clang cmake git python3
+        brew install cmake git python3 nasm
     elif [[ "$PLATFORM" == "Windows" ]]; then
-        choco install llvm cmake git python
+        echo "Installing dependencies via Chocolatey..."
+        choco install -y nasm cmake git python visualstudio2022buildtools
     else
         echo "Unsupported OS: $PLATFORM"
         exit 1
@@ -35,11 +36,20 @@ install_dependencies() {
 # Clone and Build Skynoble Compiler
 build_skynoble() {
     echo "Cloning Skynoble repository..."
-    git clone https://github.com/VioletAuraCreations/Skynoble.git ~/Skynoble
+    git clone https://github.com/VioletAuraCreations/Skynoble.git ~/Skynoble || { echo "Failed to clone repository."; exit 1; }
     cd ~/Skynoble
+
     echo "Building Skynoble Compiler..."
     mkdir -p build && cd build
-    cmake .. && make -j$(nproc || sysctl -n hw.logicalcpu || echo 2)
+
+    if [[ "$PLATFORM" == "Windows" ]]; then
+        cmake .. -G "Visual Studio 17 2022" -DCMAKE_ASM_NASM_COMPILER="nasm"
+        cmake --build . --config Release
+    else
+        cmake .. -DCMAKE_ASM_NASM_COMPILER="nasm"
+        make -j$(nproc || sysctl -n hw.logicalcpu || echo 2)
+    fi
+
     echo "Skynoble Compiler built successfully!"
 }
 
@@ -47,8 +57,18 @@ build_skynoble() {
 configure_environment() {
     echo "Configuring Environment..."
     SKYNOBLE_PATH="$HOME/Skynoble/build/skynoble"
-    echo "export PATH=\"$SKYNOBLE_PATH:\$PATH\"" >> ~/.bashrc || ~/.zshrc
-    source ~/.bashrc || source ~/.zshrc
+
+    if [[ "$PLATFORM" == "Windows" ]]; then
+        SKYNOBLE_PATH_WIN="$(cygpath -w $SKYNOBLE_PATH)"
+        echo "Adding Skynoble to PATH (Windows)..."
+        setx PATH "$SKYNOBLE_PATH_WIN;%PATH%" /M
+    else
+        SHELL_PROFILE="$HOME/.bashrc"
+        [[ -f "$HOME/.zshrc" ]] && SHELL_PROFILE="$HOME/.zshrc"
+        echo "export PATH=\"$SKYNOBLE_PATH:\$PATH\"" >> "$SHELL_PROFILE"
+        source "$SHELL_PROFILE"
+    fi
+
     echo "Skynoble added to PATH."
 }
 
