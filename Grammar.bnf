@@ -1,0 +1,95 @@
+<program> ::= <statement>*
+
+<statement> ::= <variable_declaration>
+            | <function_declaration>
+            | <if_statement>
+            | <while_loop>
+            | <for_loop>
+            | <expression_statement>
+            | <return_statement>
+            | <comment>
+            | <array_statement>
+
+<variable_declaration> ::= "let" <mutability> <identifier> "=" <expression> 
+                       | "let" <mutability> <identifier> "=" <expression> "/*" <comment_text> "*/"
+
+<mutability> ::= ""
+             | "@mut"
+
+<function_declaration> ::= "fun" <identifier> "(" <parameters> ")" "{" <statement>* "}"
+
+<parameters> ::= <identifier>
+             | <identifier> "," <parameters>
+
+<if_statement> ::= "if" <condition> "{" <statement>* "}" 
+              | "if" <condition> "{" <statement>* "}" "else" "{" <statement>* "}" 
+              | "if" <condition> "{" <statement>* "}" "else if" <condition> "{" <statement>* "}"
+
+<while_loop> ::= "while" <condition> "{" <statement>* "}"
+
+<for_loop> ::= "for" <identifier> "in" <range> "{" <statement>* "}"
+
+<range> ::= <expression> "to" <expression>
+         | <expression> "downto" <expression>
+
+<expression_statement> ::= <expression>
+
+<expression> ::= <literal>
+             | <identifier>
+             | <expression> <operator> <expression>
+             | "(" <expression> ")"
+             | <function_call>
+             | <array_access>
+
+<operator> ::= "+"
+           | "-"
+           | "*"
+           | "/"
+           | "%"
+           | "&&"
+           | "||"
+           | "=="
+           | "!="
+           | "<"
+           | "<="
+           | ">"
+           | ">="
+
+<literal> ::= <integer>
+          | <float>
+          | <string>
+          | <boolean>
+          | <array>
+
+<integer> ::= [0-9]+
+<float> ::= [0-9]+ "." [0-9]+
+<string> ::= "\"" <character>* "\""
+<boolean> ::= "true"
+          | "false"
+
+<array> ::= "[" <expression> ("," <expression>)* "]"
+
+<function_call> ::= <identifier> "(" <arguments> ")"
+
+<arguments> ::= <expression>
+            | <expression> "," <arguments>
+
+<array_access> ::= <identifier> "[" <expression> "]"
+
+<condition> ::= <expression> <operator> <expression>
+            | <identifier> "==" <literal>
+
+<return_statement> ::= "return" <expression>
+
+<identifier> ::= [a-zA-Z_][a-zA-Z0-9_]*
+
+<parameters> ::= <identifier> ("," <identifier>)*
+
+<comment> ::= "#" <comment_text>
+          | "/*" <comment_text> "*/"
+
+<comment_text> ::= <character>*
+
+<character> ::= [a-zA-Z0-9_ ,.;!?]*
+
+<array_statement> ::= "let" <identifier> "=" "[" <expression> ("," <expression>)* "]"
