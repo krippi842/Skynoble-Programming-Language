@@ -366,3 +366,60 @@ fun multiply(a, b) {
 
 let product = multiply(2, 3)
 
+// Skynoble code: SIMD, Parallelism, GPU Acceleration, and Legacy Interop Example
+
+import simd;
+import openmp;
+import opencl;
+import ffi;
+
+// Global variable to hold sum (simulated memory location)
+int sum = 0;
+
+func main() {
+    // Array initialization (10 elements for demonstration)
+    array<int> data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    // Parallel sum calculation using OpenMP
+    #parallel for (int i = 0; i < data.size(); i++) {
+        sum += data[i];
+    }
+    
+    print("Parallel Sum: ", sum);
+    
+    // SIMD operation for vector addition
+    vector<int> a = [1, 2, 3, 4, 5];
+    vector<int> b = [6, 7, 8, 9, 10];
+    vector<int> result = a + b;  // SIMD addition
+
+    print("SIMD Result: ", result);
+
+    // OpenCL GPU computation (simple kernel for addition)
+    opencl::compute_on_gpu(a, b, result);
+
+    // Legacy language interoperability (COBOL/Fortran example)
+    ffi::call_fortran_code();
+}
+
+// SIMD operation example
+func simd_example() {
+    vector<int> a = [1, 2, 3, 4, 5];
+    vector<int> b = [6, 7, 8, 9, 10];
+    vector<int> result = a + b; // SIMD addition
+    
+    print("SIMD Result: ", result);
+}
+
+// OpenCL GPU kernel execution
+opencl::kernel compute_on_gpu(vector<int> a, vector<int> b, vector<int> result) {
+    // OpenCL kernel (simplified)
+    // Run GPU addition using OpenCL
+    opencl::run_kernel("vector_add", a, b, result);
+}
+
+// FFI layer for inter-language calls
+ffi::call_fortran_code() {
+    // Call Fortran subroutine using FFI (Foreign Function Interface)
+    // Placeholder example for invoking Fortran code
+    fortran::subroutine_addition();
+}
