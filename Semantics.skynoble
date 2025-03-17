@@ -1,0 +1,236 @@
+To provide the full semantics of the **Skynoble** language, we will define the **meaning** behind each syntactic construct. This includes explaining how expressions and statements are evaluated, how control flows work, and how Skynoble handles variable scoping, function calls, array manipulation, and more.
+
+Here’s a detailed overview of the **semantics** of Skynoble:
+
+### **1. Variables and Mutability**
+- **Variable Declaration:**
+  - `let <identifier> = <expression>`: A new variable is created, and its value is the result of evaluating the `<expression>`.
+  - **Mutability:**  
+    - If the declaration includes `@mut`, the variable is mutable and can be modified later.  
+    - If no mutability modifier is provided, the variable is **immutable** (constant) after initialization.
+  
+  **Semantics:**
+  - When a variable is declared, it is added to the symbol table (the environment), with its initial value.
+  - Immutable variables cannot be reassigned, while mutable ones can.
+
+  Example:
+  ```skynoble
+  let @mut x = 5   // x is mutable
+  let y = 10       // y is immutable
+  ```
+
+### **2. Expressions and Evaluation**
+
+- **Literals:**
+  - **Integer, Float, Boolean, and String literals** are evaluated to their corresponding primitive values.
+  - Arrays are evaluated as collections of elements.
+  
+  **Semantics:**
+  - Each literal (e.g., `5`, `"Hello"`, `true`) represents a direct value that can be used in expressions.
+
+  Example:
+  ```skynoble
+  let a = 5          // a = 5
+  let b = 10.5       // b = 10.5
+  let c = "Hello"    // c = "Hello"
+  ```
+
+- **Operators:**
+  - **Arithmetic operators** (`+`, `-`, `*`, `/`, `%`) work on numerical values.
+  - **Comparison operators** (`==`, `!=`, `<`, `>`, `<=`, `>=`) yield boolean results.
+  - **Logical operators** (`&&`, `||`) combine boolean expressions.
+  
+  **Semantics:**
+  - When an operator is used, the operands are evaluated first, then the operation is performed.
+  
+  Example:
+  ```skynoble
+  let x = 10 + 5    // x = 15
+  let y = x * 2     // y = 30
+  let z = y > 25    // z = true
+  ```
+
+- **Function Calls:**
+  - A function call is evaluated by first evaluating the arguments, then passing them to the function’s parameters.
+  
+  **Semantics:**
+  - Function calls are evaluated by evaluating each argument expression, and then the function body is executed with the arguments bound to the parameters.
+  
+  Example:
+  ```skynoble
+  fun add(a, b) {
+      return a + b
+  }
+  
+  let result = add(5, 10)   // result = 15
+  ```
+
+### **3. Control Flow Statements**
+
+- **Conditional (`if` / `else`):**
+  - The condition is evaluated, and if it is true, the block of statements within the `{}` is executed. If it is false and there is an `else` clause, that block is executed.
+  
+  **Semantics:**
+  - If the condition evaluates to `true`, the corresponding block of statements is executed. Otherwise, the `else` block (if present) is executed.
+  
+  Example:
+  ```skynoble
+  let x = 10
+  if x > 5 {
+      print("Greater than 5")
+  } else {
+      print("Less than or equal to 5")
+  }
+  ```
+
+- **Loops (`while`, `for`):**
+  - **`while` loop:** Repeatedly evaluates the condition. If true, the block inside the loop is executed.
+  - **`for` loop:** Iterates over a collection or range and executes the block for each item.
+  
+  **Semantics:**
+  - **`while`:** The condition is evaluated before each iteration, and if `true`, the loop body is executed.
+  - **`for`:** The loop iterates over each item in the range or array. In the case of arrays, the variable binds to each element in sequence.
+
+  Example (while loop):
+  ```skynoble
+  let x = 0
+  while x < 5 {
+      print(x)
+      x = x + 1
+  }
+  ```
+
+  Example (for loop):
+  ```skynoble
+  let nums = [1, 2, 3, 4, 5]
+  for num in nums {
+      print(num)
+  }
+  ```
+
+### **4. Functions and Return**
+
+- **Function Declaration:**
+  - Functions are defined with the `fun` keyword, followed by parameters in parentheses and a block of code inside curly braces.
+  
+  **Semantics:**
+  - When a function is called, the parameters are bound to the corresponding arguments, and the function body is executed. If there is a `return` statement, the function execution halts, and the value is returned.
+
+  Example:
+  ```skynoble
+  fun add(a, b) {
+      return a + b
+  }
+  let sum = add(5, 10)  // sum = 15
+  ```
+
+- **Return Statement:**
+  - A return statement immediately stops the execution of a function and returns the value of the expression.
+
+  **Semantics:**
+  - When a `return` statement is encountered, the function exits and the value is returned to the caller.
+
+  Example:
+  ```skynoble
+  fun multiply(a, b) {
+      return a * b
+  }
+  let result = multiply(2, 3)  // result = 6
+  ```
+
+### **5. Arrays**
+
+- **Array Declaration:**
+  - Arrays are declared using square brackets `[]` with elements separated by commas.
+  
+  **Semantics:**
+  - The array is stored as a sequence of values. Array indexing begins at 0.
+  
+  Example:
+  ```skynoble
+  let arr = [1, 2, 3, 4, 5]
+  let firstElement = arr[0]  // firstElement = 1
+  ```
+
+- **Array Access:**
+  - Array elements are accessed by specifying an index in square brackets.
+  
+  **Semantics:**
+  - The index expression is evaluated, and the element at that index is returned.
+  
+  Example:
+  ```skynoble
+  let arr = [10, 20, 30]
+  let secondElement = arr[1]  // secondElement = 20
+  ```
+
+### **6. Comments**
+
+- **Single-Line Comments (`#`):**
+  - The `#` symbol starts a comment that extends to the end of the line.
+  
+  **Semantics:**
+  - Single-line comments are ignored during execution.
+  
+  Example:
+  ```skynoble
+  # This is a comment
+  ```
+
+- **Multi-Line Comments (`/* */`):**
+  - Comments that span multiple lines are enclosed in `/* */`.
+  
+  **Semantics:**
+  - Multi-line comments are also ignored during execution.
+  
+  Example:
+  ```skynoble
+  /* This is a
+     multi-line comment */
+  ```
+
+### **7. Scope and Environment**
+
+- **Scoping:**
+  - Variables in Skynoble have **lexical scoping**. This means a variable is accessible within the block in which it is declared, including any nested blocks, but not outside of it.
+  
+  **Semantics:**
+  - Variables declared within a function or loop are local to that function or loop. Variables declared outside are global (or part of a higher scope).
+
+  Example:
+  ```skynoble
+  let a = 10    # Global scope
+  fun test() {
+      let b = 20  # Local scope within test()
+      print(a)    # Accessible, as 'a' is in the outer scope
+  }
+  ```
+
+### **8. Error Handling and Exceptions (optional)**
+
+- **Error Handling:**
+  - If Skynoble includes built-in exception handling (e.g., `try`, `catch`), errors encountered during the execution of a block can be caught and handled.
+  
+  **Semantics:**
+  - If an error occurs inside a `try` block, the control is transferred to the associated `catch` block, where the error can be handled.
+
+---
+
+### **Summary of Execution**
+
+The **execution** of a Skynoble program follows these steps:
+
+1. **Interpretation:** 
+   - Each statement and expression is interpreted in the order they appear in the program.
+2. **Evaluation:** 
+   - Values for expressions (literals, variables, operators, function calls) are evaluated.
+3. **Variable Assignment:** 
+   - The evaluated result is assigned to the variable or used in further expressions.
+4. **Control Flow:** 
+   - Based on conditions, loops, and function calls, the program follows specific paths of execution.
+5. **Function Execution:**
+   - Functions are invoked, and their parameters are bound, executing their body and returning a value.
+6. **Termination:** 
+   - The program terminates when there are no more statements to execute, or when a `return` or similar control flow command ends the execution.
+
+This semantic structure of Skynoble governs the behavior of the language, ensuring that all statements, expressions, and constructs are executed with a clear, predictable meaning.
