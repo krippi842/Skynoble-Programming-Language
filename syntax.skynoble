@@ -147,6 +147,156 @@ if count > limit {
 let average = count / numbers.size()
 print("The average is: " + average)
 
+
+let <variable_name> = <value>         // Immutable variable
+let @mut <variable_name> = <value>    // Mutable variable
+
+let x = 10              // Immutable variable
+let @mut y = 20         // Mutable variable
+
+let <variable_name> = <type> <value>  // Type casting (explicit)
+
+let a = 42                // Integer
+let b = 3.14              // Float
+let c = "Hello, Skynoble" // String
+let d = true              // Boolean
+let arr = [1, 2, 3, 4]    // Array of integers
+
+<operand> + <operand>    // Addition
+<operand> - <operand>    // Subtraction
+<operand> * <operand>    // Multiplication
+<operand> / <operand>    // Division
+<operand> % <operand>    // Modulus
+
+let sum = 5 + 3          // 8
+let product = 10 * 2     // 20
+let quotient = 10 / 5    // 2
+let remainder = 5 % 2    // 1
+
+if <condition> {
+    <block_of_code>
+} else if <condition> {
+    <block_of_code>
+} else {
+    <block_of_code>
+}
+
+let x = 10
+if x > 5 {
+    print("x is greater than 5")
+} else if x == 5 {
+    print("x is exactly 5")
+} else {
+    print("x is less than 5")
+}
+
+while <condition> {
+    <block_of_code>
+}
+
+for <variable> in <range> {
+    <block_of_code>
+}
+
+let i = 0
+while i < 5 {
+    print(i)
+    i = i + 1
+}
+
+for i in 0 to 4 {
+    print(i)
+}
+
+fun <function_name>(<param1>, <param2>, ...) {
+    <block_of_code>
+    return <value>
+}
+
+fun add(a, b) {
+    return a + b
+}
+
+let result = add(3, 4)  // result = 7
+
+# This is a single-line comment
+
+/* 
+    This is a multi-line comment 
+    that spans multiple lines
+*/
+
+let <array_name> = [<element1>, <element2>, ...]
+
+let numbers = [1, 2, 3, 4, 5]
+let names = ["Alice", "Bob", "Charlie"]
+
+<array_name>[<index>]
+
+let x = numbers[2]   // x = 3
+
+for name in names {
+    print(name)
+}
+
+<variable> as <type>
+
+let x = 10
+let y = x as float    // y = 10.0
+
+<expression1> && <expression2>   // AND
+<expression1> || <expression2>   // OR
+!<expression>                    // NOT
+
+let isTrue = true
+let isFalse = false
+if isTrue && !isFalse {
+    print("This is true!")
+}
+
+return <value>
+
+fun multiply(a, b) {
+    return a * b
+}
+
+try {
+    // code that might fail
+} catch <error> {
+    // handle the error
+}
+
+try {
+    let result = divide(10, 0)
+} catch error {
+    print("Error: " + error)
+}
+
+let @mut count = 0
+let limit = 10
+let numbers = [1, 2, 3, 4, 5]
+
+fun add(a, b) {
+    return a + b
+}
+
+fun multiply(a, b) {
+    return a * b
+}
+
+for number in numbers {
+    count = add(count, number)
+}
+
+if count > limit {
+    print("Count exceeded limit!")
+} else {
+    print("Count is within the limit.")
+}
+
+let average = count / numbers.size()
+print("The average is: " + average)
+
 # This is a simple Skynoble program
 
 # Variable declarations
