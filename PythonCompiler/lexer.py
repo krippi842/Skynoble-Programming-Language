@@ -44,3 +44,9 @@ def tokenize(code):
         else:
             tokens.append((kind, value))
     return tokens
+
+# Lexer update: Add token for @mut
+token_specification = [
+    # existing tokens...
+    ("MUT", r'@mut')
+]
