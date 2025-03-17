@@ -1,62 +1,62 @@
-// Skynoble Code Example: Parallel Sum with SIMD
+# Skynoble Code Example: Parallel Sum with SIMD
 
-// Import necessary libraries for SIMD and OpenMP
+# Import necessary libraries for SIMD and OpenMP
 import simd;
 import openmp;
 
-// Main function
+# Main function
 func main() {
-    // Array initialization (simple data for demonstration)
+    # Array initialization (simple data for demonstration)
     array<int> data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     
-    // Variable to hold the sum of array elements
+    # Variable to hold the sum of array elements
     int sum = 0;
 
-    // Parallel region with OpenMP
+    # Parallel region with OpenMP
     #parallel for (int i = 0; i < data.size(); i++) {
         sum += data[i];
     }
     
-    // Output the result of the parallel sum
+    # Output the result of the parallel sum
     print("Sum is: ", sum);
 }
 
-// SIMD Example (vectorized operations)
+# SIMD Example (vectorized operations)
 func simd_example() {
-    // SIMD operations on a vector
+    # SIMD operations on a vector
     vector<int> a = [1, 2, 3, 4, 5];
     vector<int> b = [6, 7, 8, 9, 10];
     
-    vector<int> result = a + b;  // Perform element-wise addition using SIMD
+    vector<int> result = a + b;  # Perform element-wise addition using SIMD
     
-    // Output the result
+    # Output the result
     print("SIMD Result: ", result);
 }
 
-let <variable_name> = <value>         // Immutable variable
-let @mut <variable_name> = <value>    // Mutable variable
+let <variable_name> = <value>         # Immutable variable
+let @mut <variable_name> = <value>    # Mutable variable
 
-let x = 10              // Immutable variable
-let @mut y = 20         // Mutable variable
+let x = 10              # Immutable variable
+let @mut y = 20         # Mutable variable
 
-let <variable_name> = <type> <value>  // Type casting (explicit)
+let <variable_name> = <type> <value>  # Type casting (explicit)
 
-let a = 42                // Integer
-let b = 3.14              // Float
-let c = "Hello, Skynoble" // String
-let d = true              // Boolean
-let arr = [1, 2, 3, 4]    // Array of integers
+let a = 42                # Integer
+let b = 3.14              # Float
+let c = "Hello, Skynoble" # String
+let d = true              # Boolean
+let arr = [1, 2, 3, 4]    # Array of integers
 
-<operand> + <operand>    // Addition
-<operand> - <operand>    // Subtraction
-<operand> * <operand>    // Multiplication
-<operand> / <operand>    // Division
-<operand> % <operand>    // Modulus
+<operand> + <operand>    # Addition
+<operand> - <operand>    # Subtraction
+<operand> * <operand>    # Multiplication
+<operand> / <operand>    # Division
+<operand> % <operand>    # Modulus
 
-let sum = 5 + 3          // 8
-let product = 10 * 2     // 20
-let quotient = 10 / 5    // 2
-let remainder = 5 % 2    // 1
+let sum = 5 + 3          # 8
+let product = 10 * 2     # 20
+let quotient = 10 / 5    # 2
+let remainder = 5 % 2    # 1
 
 if <condition> {
     <block_of_code>
@@ -102,7 +102,7 @@ fun add(a, b) {
     return a + b
 }
 
-let result = add(3, 4)  // result = 7
+let result = add(3, 4)  # result = 7
 
 # This is a single-line comment
 
@@ -118,7 +118,7 @@ let names = ["Alice", "Bob", "Charlie"]
 
 <array_name>[<index>]
 
-let x = numbers[2]   // x = 3
+let x = numbers[2]   # x = 3
 
 for name in names {
     print(name)
@@ -127,11 +127,11 @@ for name in names {
 <variable> as <type>
 
 let x = 10
-let y = x as float    // y = 10.0
+let y = x as float    # y = 10.0
 
-<expression1> && <expression2>   // AND
-<expression1> || <expression2>   // OR
-!<expression>                    // NOT
+<expression1> && <expression2>   # AND
+<expression1> || <expression2>   # OR
+!<expression>                    # NOT
 
 let isTrue = true
 let isFalse = false
@@ -146,9 +146,9 @@ fun multiply(a, b) {
 }
 
 try {
-    // code that might fail
+    # code that might fail
 } catch <error> {
-    // handle the error
+    # handle the error
 }
 
 try {
@@ -183,30 +183,30 @@ let average = count / numbers.size()
 print("The average is: " + average)
 
 
-let <variable_name> = <value>         // Immutable variable
-let @mut <variable_name> = <value>    // Mutable variable
+let <variable_name> = <value>         # Immutable variable
+let @mut <variable_name> = <value>    # Mutable variable
 
-let x = 10              // Immutable variable
-let @mut y = 20         // Mutable variable
+let x = 10              # Immutable variable
+let @mut y = 20         # Mutable variable
 
-let <variable_name> = <type> <value>  // Type casting (explicit)
+let <variable_name> = <type> <value>  # Type casting (explicit)
 
-let a = 42                // Integer
-let b = 3.14              // Float
-let c = "Hello, Skynoble" // String
-let d = true              // Boolean
-let arr = [1, 2, 3, 4]    // Array of integers
+let a = 42                # Integer
+let b = 3.14              # Float
+let c = "Hello, Skynoble" # String
+let d = true              # Boolean
+let arr = [1, 2, 3, 4]    # Array of integers
 
-<operand> + <operand>    // Addition
-<operand> - <operand>    // Subtraction
-<operand> * <operand>    // Multiplication
-<operand> / <operand>    // Division
-<operand> % <operand>    // Modulus
+<operand> + <operand>    # Addition
+<operand> - <operand>    # Subtraction
+<operand> * <operand>    # Multiplication
+<operand> / <operand>    # Division
+<operand> % <operand>    # Modulus
 
-let sum = 5 + 3          // 8
-let product = 10 * 2     // 20
-let quotient = 10 / 5    // 2
-let remainder = 5 % 2    // 1
+let sum = 5 + 3          # 8
+let product = 10 * 2     # 20
+let quotient = 10 / 5    # 2
+let remainder = 5 % 2    # 1
 
 if <condition> {
     <block_of_code>
@@ -252,7 +252,7 @@ fun add(a, b) {
     return a + b
 }
 
-let result = add(3, 4)  // result = 7
+let result = add(3, 4)  # result = 7
 
 # This is a single-line comment
 
@@ -268,7 +268,7 @@ let names = ["Alice", "Bob", "Charlie"]
 
 <array_name>[<index>]
 
-let x = numbers[2]   // x = 3
+let x = numbers[2]   # x = 3
 
 for name in names {
     print(name)
@@ -277,11 +277,11 @@ for name in names {
 <variable> as <type>
 
 let x = 10
-let y = x as float    // y = 10.0
+let y = x as float    # y = 10.0
 
-<expression1> && <expression2>   // AND
-<expression1> || <expression2>   // OR
-!<expression>                    // NOT
+<expression1> && <expression2>   # AND
+<expression1> || <expression2>   # OR
+!<expression>                    # NOT
 
 let isTrue = true
 let isFalse = false
@@ -296,9 +296,9 @@ fun multiply(a, b) {
 }
 
 try {
-    // code that might fail
+    # code that might fail
 } catch <error> {
-    // handle the error
+    # handle the error
 }
 
 try {
@@ -366,60 +366,60 @@ fun multiply(a, b) {
 
 let product = multiply(2, 3)
 
-// Skynoble code: SIMD, Parallelism, GPU Acceleration, and Legacy Interop Example
+# Skynoble code: SIMD, Parallelism, GPU Acceleration, and Legacy Interop Example
 
 import simd;
 import openmp;
 import opencl;
 import ffi;
 
-// Global variable to hold sum (simulated memory location)
+# Global variable to hold sum (simulated memory location)
 int sum = 0;
 
 func main() {
-    // Array initialization (10 elements for demonstration)
+    # Array initialization (10 elements for demonstration)
     array<int> data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     
-    // Parallel sum calculation using OpenMP
+    # Parallel sum calculation using OpenMP
     #parallel for (int i = 0; i < data.size(); i++) {
         sum += data[i];
     }
     
     print("Parallel Sum: ", sum);
     
-    // SIMD operation for vector addition
+    # SIMD operation for vector addition
     vector<int> a = [1, 2, 3, 4, 5];
     vector<int> b = [6, 7, 8, 9, 10];
-    vector<int> result = a + b;  // SIMD addition
+    vector<int> result = a + b;  # SIMD addition
 
     print("SIMD Result: ", result);
 
-    // OpenCL GPU computation (simple kernel for addition)
+    # OpenCL GPU computation (simple kernel for addition)
     opencl::compute_on_gpu(a, b, result);
 
-    // Legacy language interoperability (COBOL/Fortran example)
+    # Legacy language interoperability (COBOL/Fortran example)
     ffi::call_fortran_code();
 }
 
-// SIMD operation example
+# SIMD operation example
 func simd_example() {
     vector<int> a = [1, 2, 3, 4, 5];
     vector<int> b = [6, 7, 8, 9, 10];
-    vector<int> result = a + b; // SIMD addition
+    vector<int> result = a + b; # SIMD addition
     
     print("SIMD Result: ", result);
 }
 
-// OpenCL GPU kernel execution
+# OpenCL GPU kernel execution
 opencl::kernel compute_on_gpu(vector<int> a, vector<int> b, vector<int> result) {
-    // OpenCL kernel (simplified)
-    // Run GPU addition using OpenCL
+    # OpenCL kernel (simplified)
+    # Run GPU addition using OpenCL
     opencl::run_kernel("vector_add", a, b, result);
 }
 
-// FFI layer for inter-language calls
+# FFI layer for inter-language calls
 ffi::call_fortran_code() {
-    // Call Fortran subroutine using FFI (Foreign Function Interface)
-    // Placeholder example for invoking Fortran code
+    # Call Fortran subroutine using FFI (Foreign Function Interface)
+    # Placeholder example for invoking Fortran code
     fortran::subroutine_addition();
 }
